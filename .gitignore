@@ -1,0 +1,23 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Data
+backend/data/raw/
+backend/data/processed/
+
+# Models (keep JSON metadata, ignore binaries)
+backend/model_store/*/model.joblib
+
+# OS/Editor
+.DS_Store
+.vscode/
+
+
+backend/data/raw/
+backend/data/processed/
+backend/training/data/raw/
+*.parquet
+*.feather
+*.csv  

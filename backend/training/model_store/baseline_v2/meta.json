@@ -1,0 +1,9 @@
+{
+  "model_tag": "baseline_v2",
+  "trained_at": "2025-11-27T23:00:32.109429Z",
+  "algo": "LogisticRegression",
+  "threshold": 0.34758190777234516,
+  "threshold_policy": "best_f1_on_train_oof",
+  "features_count": 8,
+  "sklearn_version": "1.7.2"
+}
