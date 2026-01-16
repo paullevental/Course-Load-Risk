@@ -1,6 +1,6 @@
 {
-  "model_tag": "baseline_v2",
-  "trained_at": "2025-11-27T23:00:32.109429Z",
+  "model_tag": "baseline_v1",
+  "trained_at": "2025-12-30T03:08:49.416212Z",
   "algo": "LogisticRegression",
   "threshold": 0.34758190777234516,
   "threshold_policy": "best_f1_on_train_oof",
