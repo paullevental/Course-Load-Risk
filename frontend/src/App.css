@@ -1,0 +1,231 @@
+/* Page container */
+.page {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 34px 18px 40px;
+  position: relative;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 30px;
+  letter-spacing: -0.02em;
+}
+
+.sub {
+  margin: 10px 0 0 0;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.4;
+}
+
+/* Two-column layout */
+.grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 18px;
+}
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
+/* Glass card */
+.card {
+  border-radius: 18px;
+  padding: 18px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.05));
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow:
+    0 12px 34px rgba(0,0,0,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Card header */
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+h2 {
+  margin: 0;
+  font-size: 16px;
+  letter-spacing: 0.01em;
+  color: rgba(255,255,255,0.92);
+}
+
+/* Meta pill box in header */
+.metaCard {
+  border-radius: 16px;
+  padding: 12px 14px;
+  min-width: 240px;
+  background: rgba(10,12,18,0.55);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+  backdrop-filter: blur(14px);
+}
+
+.metaRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  font-size: 13px;
+  margin: 6px 0;
+}
+
+.metaLabel { color: rgba(255,255,255,0.65); }
+.metaValue { font-weight: 700; color: rgba(255,255,255,0.92); }
+
+/* Form grid */
+.form {
+  display: grid;
+  gap: 12px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+@media (max-width: 650px) {
+  .formGrid { grid-template-columns: 1fr; }
+}
+
+.field { display: grid; gap: 7px; }
+.fieldLabel {
+  font-size: 12px;
+  color: rgba(255,255,255,0.70);
+  font-weight: 650;
+  letter-spacing: 0.02em;
+}
+
+/* Inputs */
+.input {
+  padding: 11px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(8,10,14,0.55);
+  color: rgba(255,255,255,0.92);
+  font-size: 14px;
+  transition: border-color 140ms ease, box-shadow 140ms ease, transform 140ms ease;
+}
+
+.input::placeholder { color: rgba(255,255,255,0.35); }
+
+.input:focus {
+  border-color: rgba(0, 255, 204, 0.55);
+  box-shadow: 0 0 0 4px rgba(0, 255, 204, 0.12), 0 10px 25px rgba(0,255,204,0.05);
+  transform: translateY(-1px);
+}
+
+/* Buttons */
+.btnRow { display: flex; gap: 10px; }
+
+.btn {
+  border-radius: 12px;
+  padding: 11px 14px;
+  border: 1px solid rgba(255,255,255,0.18);
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  color: rgba(255,255,255,0.92);
+  background: rgba(8,10,14,0.5);
+  transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255,255,255,0.30);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+}
+
+.btnPrimary {
+  border-color: rgba(0,255,204,0.35);
+  background: linear-gradient(90deg, rgba(0,255,204,0.18), rgba(98,0,255,0.18));
+  box-shadow: 0 10px 28px rgba(0,255,204,0.08);
+}
+
+.btnPrimary:hover {
+  box-shadow: 0 14px 32px rgba(0,255,204,0.11), 0 0 18px rgba(98,0,255,0.10);
+}
+
+.btnGhost {
+  background: rgba(10,12,18,0.35);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Error box */
+.error {
+  border: 1px solid rgba(255, 93, 93, 0.55);
+  background: rgba(255, 93, 93, 0.12);
+  color: rgba(255,255,255,0.90);
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+}
+
+/* Result box */
+.resultBox {
+  margin-top: 14px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(8,10,14,0.40);
+  border-radius: 14px;
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.resultRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.muted { color: rgba(255,255,255,0.65); }
+.strong { font-weight: 800; }
+
+.details {
+  margin-top: 12px;
+}
+
+.details summary {
+  cursor: pointer;
+  color: rgba(0,255,204,0.85);
+  font-weight: 700;
+}
+
+.details pre {
+  margin-top: 10px;
+  background: rgba(8,10,14,0.55);
+  padding: 10px;
+  border-radius: 12px;
+  overflow: auto;
+  font-size: 12px;
+  border: 1px solid rgba(255,255,255,0.10);
+}
+
+/* Footer */
+.footer {
+  margin-top: 18px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.62);
+}

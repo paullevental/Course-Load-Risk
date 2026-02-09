@@ -1,0 +1,46 @@
+/* ---------- Global Reset ---------- */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  color: rgba(255,255,255,0.92);
+  background: radial-gradient(1200px 800px at 15% 15%, rgba(98, 0, 255, 0.25), transparent 55%),
+              radial-gradient(900px 600px at 85% 20%, rgba(0, 255, 204, 0.18), transparent 60%),
+              radial-gradient(900px 700px at 60% 90%, rgba(0, 153, 255, 0.18), transparent 55%),
+              #05060a;
+  overflow-x: hidden;
+}
+
+/* ---------- Subtle Animated Grid Background ---------- */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 42px 42px;
+  opacity: 0.12;
+  transform: perspective(900px) rotateX(62deg) translateY(-200px);
+  transform-origin: top;
+  animation: grid-float 8s ease-in-out infinite;
+}
+
+@keyframes grid-float {
+  0%, 100% { transform: perspective(900px) rotateX(62deg) translateY(-210px); }
+  50%      { transform: perspective(900px) rotateX(62deg) translateY(-185px); }
+}
+
+/* ---------- Better default focus ---------- */
+:focus-visible {
+  outline: 2px solid rgba(0, 255, 204, 0.7);
+  outline-offset: 3px;
+}
+
+/* ---------- Code element ---------- */
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  color: rgba(0, 255, 204, 0.9);
+}

@@ -6,10 +6,9 @@ from app.services.model_service import load_bundle, predict_one
 
 app = FastAPI(title="Course Load Risk API", version="0.1.0")
 
-# For frontend dev (Vite)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5555"],
+    allow_origins=["http://localhost:3000"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -46,3 +45,4 @@ def predict(req: PredictRequest):
         raise HTTPException(status_code=422, detail=str(e))
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Prediction failed: {e}")
+    

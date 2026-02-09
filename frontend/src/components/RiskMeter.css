@@ -1,0 +1,70 @@
+.meter {
+  display: grid;
+  gap: 10px;
+}
+
+.meterHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.meterTitle {
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+
+.barOuter {
+  height: 12px;
+  background: rgba(255,255,255,0.10);
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.barInner {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 250ms ease;
+  background: linear-gradient(90deg, rgba(0,255,204,0.85), rgba(98,0,255,0.85));
+  box-shadow: 0 0 14px rgba(0,255,204,0.20), 0 0 18px rgba(98,0,255,0.16);
+}
+
+.meterFooter {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: rgba(255,255,255,0.62);
+}
+
+.pct {
+  font-weight: 900;
+  color: rgba(255,255,255,0.92);
+}
+
+.pill {
+  font-size: 12px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(8,10,14,0.55);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.pill-low {
+  border-color: rgba(0,255,204,0.35);
+  box-shadow: 0 0 14px rgba(0,255,204,0.10);
+}
+
+.pill-medium {
+  border-color: rgba(255, 210, 77, 0.38);
+  box-shadow: 0 0 14px rgba(255, 210, 77, 0.10);
+}
+
+.pill-high {
+  border-color: rgba(255, 93, 93, 0.42);
+  box-shadow: 0 0 14px rgba(255, 93, 93, 0.12);
+}

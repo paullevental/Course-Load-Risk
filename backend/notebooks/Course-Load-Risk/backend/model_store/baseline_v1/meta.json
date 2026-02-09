@@ -1,6 +1,6 @@
 {
   "model_tag": "baseline_v1",
-  "trained_at": "2026-01-23T20:46:07.653828Z",
+  "trained_at": "2026-01-25T20:00:15.626398Z",
   "algo": "RandomForestClassifier",
   "decision_threshold": 0.3354183042802519,
   "thresholds": {
@@ -9,5 +9,5 @@
   },
   "threshold_policy": "bands=quantiles",
   "features_count": 8,
-  "sklearn_version": "1.7.2"
+  "sklearn_version": "1.8.0"
 }
