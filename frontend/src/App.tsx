@@ -5,6 +5,28 @@ import RiskMeter from "./components/RiskMeter";
 
 type Status = "loading" | "ready" | "predicting" | "error";
 
+function toFriendlyLabel(name: string): string {
+  const custom: Record<string, string> = {
+    total_credits: "Total Credits",
+    credits: "Total Credits",
+    num_courses: "Number Of Courses",
+    num_classes: "Number Of Classes",
+    weekly_work_hours: "Work Hours Per Week",
+    work_hours: "Work Hours Per Week",
+    avg_grade: "Average Grade",
+    gpa: "GPA",
+  };
+
+  if (custom[name]) return custom[name];
+
+  const withSpaces = name
+    .replace(/_/g, " ")
+    .replace(/([a-z])([A-Z])/g, "$1 $2")
+    .toLowerCase();
+
+  return withSpaces.replace(/\b\w/g, (ch) => ch.toUpperCase());
+}
+
 function isNumericLike(v: string) {
   if (v.trim() === "") return false;
   return !Number.isNaN(Number(v));
@@ -67,7 +89,12 @@ export default function App() {
     // Basic validation: ensure no empty fields
     const missing = featureNames.filter((f) => (features[f] ?? "").trim() === "");
     if (missing.length > 0) {
-      setErrorMsg(`Missing values for: ${missing.slice(0, 8).join(", ")}${missing.length > 8 ? "..." : ""}`);
+      const missingLabels = missing.map((m) => toFriendlyLabel(m));
+      setErrorMsg(
+        `Please fill in: ${missingLabels.slice(0, 8).join(", ")}${
+          missingLabels.length > 8 ? "..." : ""
+        }`
+      );
       return;
     }
 
@@ -85,7 +112,8 @@ export default function App() {
       setResult(r);
       setStatus("ready");
     } catch (e: any) {
-      setStatus("error");
+      // Keep the UI interactive even if the backend errors
+      setStatus("ready");
       setErrorMsg(e?.message ?? String(e));
     }
   }
@@ -117,7 +145,12 @@ export default function App() {
           <div className="cardHeader">
             <h2>Inputs</h2>
             <div className="btnRow">
-              <button className="btn btnGhost" type="button" onClick={fillExample} disabled={status !== "ready"}>
+              <button
+                className="btn btnGhost"
+                type="button"
+                onClick={fillExample}
+                disabled={status === "loading" || status === "predicting"}
+              >
                 Fill example
               </button>
             </div>
@@ -130,12 +163,12 @@ export default function App() {
               <div className="formGrid">
                 {featureNames.map((name) => (
                   <label key={name} className="field">
-                    <div className="fieldLabel">{name}</div>
+                    <div className="fieldLabel">{toFriendlyLabel(name)}</div>
                     <input
                       className="input"
                       value={features[name] ?? ""}
                       onChange={(e) => onChange(name, e.target.value)}
-                      placeholder="Enter a value"
+                      placeholder={`Enter ${toFriendlyLabel(name).toLowerCase()}`}
                     />
                   </label>
                 ))}
@@ -183,11 +216,6 @@ export default function App() {
         </section>
       </main>
 
-      <footer className="footer">
-        <span className="muted">
-          Tip: Keep your backend running at <code>localhost:8000</code> while using the UI.
-        </span>
-      </footer>
     </div>
   );
 }
